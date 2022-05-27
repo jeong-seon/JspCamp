@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:redirect url="/main.black" />
+	<c:redirect url="/main.cmp" />
 </body>
 </html>
