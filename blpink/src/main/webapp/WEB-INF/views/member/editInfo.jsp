@@ -43,23 +43,27 @@
 		margin: 0px;
 	}
 </style>
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
 <script type="text/javascript">
 </script>
 </head>
 <body class="w3-light-grey">
+<div class="w3-container">
 	<div class="w3-content w3-margin-top mxw700">
 		<!-- 헤더 -->
 		<h1 class="w3-gray w3-center w3-padding w3-card-4">Camp24 회원 정보수정</h1>
 		<form method="POST" action="" name="frm" id="frm"
 			class="w3-col w3-margin-top w3-margin-bottom w3-padding w3-card-4">
-			<input type="hidden" id="tname" value="${DATA.mname}">
-			<input type="hidden" id="tmail" value="${DATA.email}">
+			<input type="hidden" id="tname" value="${DATA.name}">
+			<input type="hidden" id="tmail" value="${DATA.mail}">
 			<input type="hidden" id="ttel" value="${DATA.tel}">
 			<input type="hidden" id="tano" value="${DATA.ano}">
 			<input type="hidden" name="mno" value="${DATA.mno}">
 			<div>
 				<label for="name" class="w3-col s3 w3-right-align clrgrey ft14 mgb10">회원이름 : </label>
-				<input type="text" name="name" id="name" class="w3-col s8 mgl10 w3-input w3-border mgb10" value="${DATA.mname}">
+				<input type="text" name="name" id="name" class="w3-col s8 mgl10 w3-input w3-border mgb10" value="${DATA.name}">
 			</div>
 			<div>
 				<label for="id" class="w3-col s3 w3-right-align clrgrey ft14 mgb10">아 이 디 : </label>
@@ -80,7 +84,7 @@
 			</div>
 			<div>
 				<label for="mail" class="w3-col s3 w3-right-align clrgrey ft14 mgb10">회원메일 : </label>
-				<input type="text" name="mail" id="mail" class="w3-col s8 mgl10 w3-input w3-border mgb10" value="${DATA.email}">
+				<input type="text" name="mail" id="mail" class="w3-col s8 mgl10 w3-input w3-border mgb10" value="${DATA.mail}">
 			</div>
 			<div>
 				<label for="tel" class="w3-col s3 w3-right-align clrgrey ft14 mgb10">전화번호 : </label>
@@ -119,6 +123,7 @@
 			<div class="w3-col w3-gray w3-hover-aqua w3-button" id="ebtn">edit</div> 
 		</div>
 	</div>
+</div>
 </body>
 </html>
 <%@ include file="../footer.jsp" %>

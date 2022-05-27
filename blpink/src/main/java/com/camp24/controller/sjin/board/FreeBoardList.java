@@ -29,7 +29,7 @@ public class FreeBoardList implements CmpInter {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String view = "/freeBoard/freeBoardList";
+		String view = "/board/freeBoardList";
 		
 		// 할 일
 		// 파라미터 꺼내고

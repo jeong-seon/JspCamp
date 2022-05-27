@@ -12,7 +12,6 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 import com.camp24.controller.*;
-import com.camp24.dao.*;
 import com.camp24.dao.kimhe.MemberDao;
 import com.camp24.vo.*;
 
@@ -27,7 +26,7 @@ public class MyInfo implements CmpInter {
 		String view = "/member/memberInfo";
 		if(sid == null) {
 			req.setAttribute("isRedirect", true);
-			view = "/camp24/member/login.blp";
+			view = "/camp24/member/login.cmp";
 			return view;
 		}
 		

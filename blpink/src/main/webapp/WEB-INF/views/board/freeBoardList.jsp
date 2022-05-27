@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="../header.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,17 +9,16 @@
 </head>
 <body>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" type="text/css" href="/camp24/resources/css/w3.css">
 <link rel="stylesheet" type="text/css" href="/camp24/resources/css/user.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="/camp24/resources/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/camp24/resources/js/camp24/freeBoard.js"></script>
+<script type="text/javascript" src="/camp24/resources/js/camp24/header.js"></script>
 <style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<style>
 .w3-sidebar {
   z-index: 3;
   width: 250px;
@@ -34,7 +34,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 </script>
 </head>
 <body>
-
+<div class="w3-container">
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
@@ -185,5 +185,7 @@ function w3_close() {
 		<input type="hidden" id="nowPage" name="nowPage" value="${PAGE.nowPage}">
 		<input type="hidden" id="fbno" name="fbno">
 	</form>
+</div>
 </body>
 </html>
+<%@ include file="../footer.jsp" %>

@@ -18,7 +18,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		<div class="w3-col w3-border-bottom">
 		<div class="w3-col m3 w3-button w3-blue w3-hover-light-green" id="home"><strong>Camp 24</strong></div>
 			<span class="w3-col m1 w3-button w3-dark-gray w3-right" id="jbtn">Join</span>
-			<span class="w3-col m1 w3-button w3-light-gray w3-right" id="lbtn">Login</span>
+			<span class="w3-col m1 w3-button w3-light-gray w3-right" id="linbtn">Login</span>
 			<span class="w3-col m1 w3-button w3-lime w3-right" id="mapbtn">지 도</span>
 		</div>
 	</div>

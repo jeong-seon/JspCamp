@@ -10,9 +10,9 @@
 <script type="text/javascript" src="/camp24/resources/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/camp24/resources/js/camp24/header.js"></script>
 <script type="text/javascript" src="/camp24/resources/js/camp24/search.js"></script>
-<script type="text/javascript">
-
-</script>
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
 </head>
 <body class="w3-light-grey">
 <div class="w3-row w3-padding-64">

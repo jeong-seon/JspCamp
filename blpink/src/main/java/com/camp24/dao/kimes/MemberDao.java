@@ -46,9 +46,9 @@ public class MemberDao {
 			pstmt = db.getPSTMT(con, sql);
 			try {
 				// 질의명령 완성
-				pstmt.setString(1, mVO.getName());
-				pstmt.setString(2, mVO.getId());
-				pstmt.setString(3, mVO.getPw());
+				pstmt.setString(1, mVO.getId());
+				pstmt.setString(2, mVO.getPw());
+				pstmt.setString(3, mVO.getName());
 				pstmt.setString(4, mVO.getMail());
 				pstmt.setString(5, mVO.getTel());
 				pstmt.setInt(6, mVO.getAno());

@@ -49,7 +49,6 @@ public class MemberDao {
 			// 결과에서 데이터꺼내고
 			rs.next();
 			cnt = rs.getInt("cnt");
-			System.out.println("cnt : " + cnt);
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -85,9 +84,9 @@ public class MemberDao {
 				rs.next();
 				// vo setting
 				mVO.setMno(rs.getInt("mno"));
-				mVO.setName(rs.getString("name"));
+				mVO.setName(rs.getString("mname"));
 				mVO.setId(rs.getString("id"));
-				mVO.setMail(rs.getString("mail"));
+				mVO.setMail(rs.getString("email"));
 				mVO.setTel(rs.getString("tel"));
 				mVO.setGen(rs.getString("gen"));
 				mVO.setAno(rs.getInt("ano"));
@@ -126,9 +125,9 @@ public class MemberDao {
 				rs.next();
 				// vo setting
 				mVO.setMno(rs.getInt("mno"));
-				mVO.setName(rs.getString("name"));
+				mVO.setName(rs.getString("mname"));
 				mVO.setId(rs.getString("id"));
-				mVO.setMail(rs.getString("mail"));
+				mVO.setMail(rs.getString("email"));
 				mVO.setTel(rs.getString("tel"));
 				mVO.setGen(rs.getString("gen"));
 				mVO.setAno(rs.getInt("ano"));

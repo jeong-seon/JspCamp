@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$('#wbtn').click(function(){
-		$('#frm').attr('action', '/camp24/freeBoard/freeBoardWrite.cmp');
+		$('#frm').attr('action', '/camp24/board/freeBoardWrite.cmp');
 		$('#frm').submit();
 	});
 	
@@ -17,13 +17,13 @@ $(document).ready(function(){
 	
 	/* 댓글 쓰기 버튼 클릭 이벤트 처리 */
 	$('.cmtbtn').click(function(){
-		$(location).attr('href', '/camp24/freeBoard/freeBoardComment.cmp');
+		$(location).attr('href', '/camp24/board/freeBoardComment.cmp');
 	});
 	
 	/* 게시글 삭제 버튼 클릭 이벤트 처리 */
 	$('.dbtn').click(function(){
 		var sno = $(this).parent().attr('id');
-		$('#frm').attr('action', '/camp24/freeBoard/freeBoardDel.cmp');
+		$('#frm').attr('action', '/camp24/board/freeBoardDel.cmp');
 		$('#fbno').val(sno);
 		$('#frm').submit();
 	});

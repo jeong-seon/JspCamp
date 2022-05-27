@@ -12,6 +12,9 @@
 <script type="text/javascript" src="/camp24/resources/js/camp24/main.js"></script>
 <script type="text/javascript" src="/camp24/resources/js/camp24/header.js"></script>
 <title>Camp24 Kakao 지도</title>
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
 </head>
 <body>
 	<div id="map" style="width:500px;height:400px;"></div>

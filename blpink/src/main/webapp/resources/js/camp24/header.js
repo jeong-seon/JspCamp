@@ -15,7 +15,7 @@ $(document).ready(function(){
 		$(location).attr('href', '/camp24/member/join.cmp');
 	});
 
-	$('#lbtn').click(function(){
+	$('#linbtn').click(function(){
 		$(location).attr('href', '/camp24/member/login.cmp');
 	});
 	
@@ -29,5 +29,12 @@ $(document).ready(function(){
 	
 	$('#ibtn').click(function(){
 		$(location).attr('href', '/camp24/member/myInfo.cmp');
+	});
+	
+	$('#freebtn').click(function(){
+		$(location).attr('href', '/camp24/board/freeBoardList.cmp');
+	});
+	$('#faqbtn').click(function(){
+		$(location).attr('href', '/camp24/board/faqList.cmp');
 	});
 });

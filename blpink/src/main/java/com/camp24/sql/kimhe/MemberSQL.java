@@ -29,7 +29,7 @@ public class MemberSQL {
 			break;
 		case SEL_MEMBER_INFO:
 			buff.append("SELECT ");
-			buff.append("	mno, name, id, mail, tel, m.gen, joindate, ano, savename ");
+			buff.append("	mno, mname, id, email, tel, m.gen, joindate, ano, savename ");
 			buff.append("FROM ");
 			buff.append("	member m, avatar ");
 			buff.append("WHERE ");
@@ -39,7 +39,7 @@ public class MemberSQL {
 			break;
 		case SEL_MNO_INFO:
 			buff.append("SELECT ");
-			buff.append("	mno, name, id, mail, tel, m.gen, joindate, ano, savename ");
+			buff.append("	mno, mname, id, email, tel, m.gen, joindate, ano, savename ");
 			buff.append("FROM ");
 			buff.append("	member m, avatar ");
 			buff.append("WHERE ");

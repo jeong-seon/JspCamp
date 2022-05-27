@@ -54,10 +54,11 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 			bepage.val(bepage);
 			nextpage.val(nextpage);
 			$('#frm').submit();
-		}); */
+		});
 		$('#next').click(function({
 			$('#frm').submit();
 		});
+		*/
 		
 	});
 </script>

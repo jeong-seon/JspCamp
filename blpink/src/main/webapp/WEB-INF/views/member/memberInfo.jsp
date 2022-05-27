@@ -1,14 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="../header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Member Info</title>
+<title>Camp24 My Info</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" type="text/css" href="/camp24/resources/css/w3.css">
 <link rel="stylesheet" type="text/css" href="/camp24/resources/css/base.css">
 <script type="text/javascript" src="/camp24/resources/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/camp24/resources/js/camp24/memberInfo.js"></script>
+<script type="text/javascript" src="/camp24/resources/js/camp24/header.js"></script>
 <style type="text/css">
 	.avtbox {
 	
@@ -23,11 +28,12 @@
 		left: 20px;
 	}
 </style>
-<script type="text/javascript">
-	
-</script>
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
 </head>
 <body class="w3-light-grey">
+<div class="w3-container">
 	<%--
 		요청시 부가정보 전달용 태그
 	 --%>
@@ -81,5 +87,7 @@
 
 		</footer>
 	</div>
+</div>
 </body>
 </html>
+<%@ include file="../footer.jsp" %>

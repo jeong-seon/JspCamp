@@ -62,6 +62,8 @@ import com.camp24.vo.ApiVO;
  * 			작업이력 ]
  * 				2022.05.24	-	담당자 : 정선우
  * 								내	용 : 클래스 제작
+ * 
+ * 				2022.05.27	-	수정 및 검색기능 작업 완료
  *
  */
 public class SearchBoardList implements CmpInter {

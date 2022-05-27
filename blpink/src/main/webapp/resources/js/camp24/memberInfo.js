@@ -7,7 +7,7 @@ $(document).ready(function(){
 		$('#smno').val(sno);
 		$('#sid').val(sid);
 		// 보낼주소 수정하고
-		$('#frm').attr('action', '/camp24/member/delInfo.blp');
+		$('#frm').attr('action', '/camp24/member/delInfo.cmp');
 		
 		if(confirm('정말 탈퇴합니까?')){
 			// form 태그가 완성이 됬으니 전송한다.
@@ -15,6 +15,6 @@ $(document).ready(function(){
 		}
 	});
 	$('#ebtn').click(function(){
-		$(location).attr('href', '/camp24/member/editInfo.blp');
+		$(location).attr('href', '/camp24/member/editInfo.cmp');
 	});
 });

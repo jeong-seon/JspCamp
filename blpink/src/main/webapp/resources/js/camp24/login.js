@@ -10,8 +10,6 @@ $(document).ready(function(){
 			$('#pw').focus();
 			return;
 		}
-		alert('id : ' + sid);
-		alert('pw : ' + spw);
 		$('#frm').attr('action', '/camp24/member/loginProc.cmp');
 		$('#frm').submit();
 	});
@@ -20,7 +18,7 @@ $(document).ready(function(){
 	$('#hbtn').click(function(){
 		$(location).attr('href', '/camp24/main.cmp');
 	});
-	$('#jbtn').click(function(){
+	$('#joinbtn').click(function(){
 		$(location).attr('href', '/camp24/member/join.cmp');
 	});
 });
