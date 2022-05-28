@@ -54,7 +54,7 @@ public class MemberSQL {
 			buff.append("	isshow = 'N' ");
 			buff.append("WHERE ");
 			buff.append("	isshow = 'Y' ");
-			buff.append("	AND mno = ? ");
+			buff.append("	AND mname = ? ");
 			break;
 
 		}

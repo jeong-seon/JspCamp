@@ -41,7 +41,9 @@ public class FreeBoardDao {
 	
 	// 자유게시판 게시글 리스트 조회 전담 처리함수
 	public ArrayList<BoardVO> getFBoardList(PageUtil page){
+		// 반환값 변수
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
+		
 		// 커넥션
 		con = db.getCon();
 		
@@ -84,11 +86,6 @@ public class FreeBoardDao {
 				bVO.setClick(rs.getInt("click"));
 				bVO.setStep(rs.getInt("step"));
 				
-				/*
-					bVO.setFedate(rs.getDate("fedate"));
-					bVO.setFedate(rs.getTime("fedate"));
-					bVO.setSdate();
-				*/
 				// 리스트에 담고
 				list.add(bVO);
 			}
@@ -99,20 +96,20 @@ public class FreeBoardDao {
 			db.close(pstmt);
 			db.close(con);
 		}
-		
 		// 리스트 반환하고
 		return list;
 	}
 	
-	// 작성자 정보 조회 전담 처리함수
-	public BoardVO getWriterInfo(String id) {
+	// 원글 작성자 정보 조회 전담 처리함수
+	public BoardVO getMyInfo(String id) {
+		// 반환값 변수
 		BoardVO bVO = new BoardVO();
 		
 		// 커넥션
 		con = db.getCon();
 		
 		// 질의명령
-		String sql = fSQL.getSQL(fSQL.SEL_WRITER_INFO);
+		String sql = fSQL.getSQL(fSQL.SEL_MY_INFO);
 		
 		// 명령전달도구
 		pstmt = db.getPSTMT(con, sql);
@@ -135,7 +132,46 @@ public class FreeBoardDao {
 			db.close(pstmt);
 			db.close(con);
 		}
+		// VO 반환하고
+		return bVO;
+	}
+	
+	// 댓글 작성 작성자 정보 조회 전담 처리함수
+	public BoardVO getWriterInfo(String id, int fbno) {
+		// 반환값 변수
+		BoardVO bVO = new BoardVO();
 		
+		// 커넥션
+		con = db.getCon();
+		
+		// 질의명령
+		String sql = fSQL.getSQL(fSQL.SEL_WRITER_INFO);
+		
+		// 명령전달도구
+		pstmt = db.getPSTMT(con, sql);
+		
+		try {
+			// 질의명령 완성하고
+			pstmt.setInt(1, fbno);
+			pstmt.setString(2, id);
+			
+			// 질의명령 보내고 결과 받고
+			rs = pstmt.executeQuery();
+			
+			// 결과에서 데이터 꺼내서 VO에 담고
+			rs.next();
+			bVO.setFbno(rs.getInt("fbno"));
+			bVO.setMno(rs.getInt("mno"));
+			bVO.setTitle(rs.getString("title"));
+			bVO.setBody(rs.getString("body"));
+			bVO.setAvatar(rs.getString("savename"));
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
 		// VO 반환하고
 		return bVO;
 	}
@@ -161,6 +197,8 @@ public class FreeBoardDao {
 			pstmt.setString(3, bVO.getTitle());
 			if(bVO.getFupno() == 0) {
 				pstmt.setNull(4, java.sql.Types.NULL);
+			} else {
+				pstmt.setInt(4, bVO.getFupno());
 			}
 			// 보내고 결과 받고
 			cnt = pstmt.executeUpdate();
@@ -170,13 +208,46 @@ public class FreeBoardDao {
 			db.close(pstmt);
 			db.close(con);
 		}
+		// 결과 반환하고
+		return cnt;
+	}
+	
+	// 게시글 수정 데이터베이스 작업 전담 처리함수
+	public int editFreeBoard(int fbno, String psql) {
+		// 반환값 변수
+		int cnt = 0;
 		
+		// 커넥션
+		con = db.getCon();
+		
+		// 질의명령
+		String sql = fSQL.getSQL(fSQL.EDIT_FREEBOARD);
+		
+		// 질의명령 수정하고
+		sql = sql.replaceAll("###", psql);
+		
+		// 명령전달도구
+		pstmt = db.getPSTMT(con, sql);
+		
+		try {
+			// 질의명령 완성하고
+			pstmt.setInt(1, fbno);
+			
+			// 질의명령 보내고 결과 받고
+			cnt = pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(pstmt);
+			db.close(con);
+		}
 		// 결과 반환하고
 		return cnt;
 	}
 	
 	// 게시글 삭제 데이터베이스 작업 전담 처리함수
 	public int delFreeBoard(int fbno) {
+		// 반환값 변수
 		int cnt = 0;
 		
 		// 커넥션
@@ -203,34 +274,36 @@ public class FreeBoardDao {
 		// 결과 내보내고
 		return cnt;
 	}
+	
 	// 총 게시글 수 조회 전담 처리함수
-		public int getTotal() {
-			int cnt = 0;
-			// 커넥션
-			con = db.getCon();
+	public int getTotal() {
+		// 반환값 변수
+		int cnt = 0;
+		
+		// 커넥션
+		con = db.getCon();
+		
+		// 질의명령
+		String sql = fSQL.getSQL(fSQL.SEL_TOTAL_CNT);
+		
+		// 명령전달도구
+		stmt = db.getSTMT(con);
+		
+		try {
+			// 질의명령 보내고 결과 받고
+			rs = stmt.executeQuery(sql);
 			
-			// 질의명령
-			String sql = fSQL.getSQL(fSQL.SEL_TOTAL_CNT);
-			
-			// 명령전달도구
-			stmt = db.getSTMT(con);
-			
-			try {
-				// 질의명령 보내고 결과 받고
-				rs = stmt.executeQuery(sql);
-				
-				// 결과 꺼내서 변수에 기억시키고
-				rs.next();
-				cnt = rs.getInt("cnt");
-			} catch(Exception e) {
-				e.printStackTrace();
-			} finally {
-				db.close(rs);
-				db.close(stmt);
-				db.close(con);
-			}
-			
-			// 결과 반환하고
-			return cnt;
+			// 결과 꺼내서 변수에 기억시키고
+			rs.next();
+			cnt = rs.getInt("cnt");
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(stmt);
+			db.close(con);
 		}
+		// 결과 반환하고
+		return cnt;
+	}
 }

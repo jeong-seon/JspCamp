@@ -120,7 +120,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		
 		<!-- 버튼 태그 -->
 		<div class="w3-col w3-margin-top w3-card-4"> 
-			<div class="w3-col w3-gray w3-hover-aqua w3-button" id="ebtn">edit</div> 
+			<div class="w3-col w3-gray w3-hover-aqua w3-button" id="ebtn">수정</div> 
 		</div>
 	</div>
 </div>

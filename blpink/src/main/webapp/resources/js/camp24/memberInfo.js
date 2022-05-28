@@ -1,10 +1,10 @@
 $(document).ready(function(){
 	$('#dbtn').click(function(){
 		// 보낼 데이터 읽고
-		var sno = $('#mno').html();
+		var sname = $('#name').html();
 		var sid = $('#id').html();
 		// 보낼 데이터 셋팅하고
-		$('#smno').val(sno);
+		$('#sname').val(sname);
 		$('#sid').val(sid);
 		// 보낼주소 수정하고
 		$('#frm').attr('action', '/camp24/member/delInfo.cmp');

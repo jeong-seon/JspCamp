@@ -17,8 +17,8 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	<div style="width: 100%;">
 		<div class="w3-col w3-border-bottom">
 		<div class="w3-col m3 w3-button w3-blue w3-hover-light-green" id="home"><strong>Camp 24</strong></div>
-			<span class="w3-col m1 w3-button w3-dark-gray w3-right" id="jbtn">Join</span>
-			<span class="w3-col m1 w3-button w3-light-gray w3-right" id="linbtn">Login</span>
+			<span class="w3-col m1 w3-button w3-dark-gray w3-right" id="joinbtn">Join</span>
+			<span class="w3-col m1 w3-button w3-light-gray w3-right" id="loginbtn">Login</span>
 			<span class="w3-col m1 w3-button w3-lime w3-right" id="mapbtn">지 도</span>
 		</div>
 	</div>
@@ -27,8 +27,8 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	<div style="width: 100%;">
 		<div class="w3-col w3-border-bottom pdb3">
 		<div class="w3-col m3 w3-button w3-blue w3-hover-light-green" id="home"><strong>Camp 24</strong></div>
-			<span class="w3-cell m1 w3-button w3-gray w3-right mt0" id="obtn">LogOut</span>
-			<span class="w3-cell m1 w3-button w3-dark-gray w3-right mt0" id="ibtn">마이페이지</span>
+			<span class="w3-cell m1 w3-button w3-gray w3-right mt0" id="loutbtn">LogOut</span>
+			<span class="w3-cell m1 w3-button w3-dark-gray w3-right mt0" id="mypagebtn">마이페이지</span>
 			<span class="w3-col m1 w3-button w3-lime w3-right" id="mapbtn">지 도</span>
 		</div>
 	</div>
@@ -40,9 +40,9 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-content" style="max-width:1400px">
 		<div class="w3-col w3-center">
 			<div class="w3-button w3-dark-gray" id="freebtn">자유게시판</div>
-			<div class="w3-button w3-dark-gray" id="revbtn">방문후기 게시판</div>
-			<div class="w3-button w3-dark-gray" id="schbtn">검색게시판</div>
-			<div class="w3-button w3-dark-gray" id="cmpbtn">캠핑장 정보게시판</div>
 			<div class="w3-button w3-dark-gray" id="qnabtn">QnA 게시판</div>
 			<div class="w3-button w3-dark-gray" id="faqbtn">FAQ 게시판</div>
+			<div class="w3-button w3-dark-gray" id="schbtn">검색게시판</div>
+			<div class="w3-button w3-dark-gray" id="cmpbtn">캠핑장 정보게시판</div>
+			<div class="w3-button w3-dark-gray" id="revbtn">방문후기 게시판</div>
 		</div>

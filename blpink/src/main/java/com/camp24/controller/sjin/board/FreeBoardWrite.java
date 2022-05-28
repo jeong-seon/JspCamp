@@ -42,7 +42,7 @@ public class FreeBoardWrite implements CmpInter {
 
 		// 로그인 한 경우이므로 데이터베이스에서 데이터 꺼내오기
 		FreeBoardDao fDao = new FreeBoardDao();
-		BoardVO bVO = fDao.getWriterInfo(sid);
+		BoardVO bVO = fDao.getMyInfo(sid);
 		
 		// 데이터 심고
 		req.setAttribute("DATA", bVO);

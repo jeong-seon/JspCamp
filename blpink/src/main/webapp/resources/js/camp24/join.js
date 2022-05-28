@@ -116,7 +116,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	$('#joinbtn').click(function(){
+	$('#jbtn').click(function(){
 		// 데이터 유효성 검사
 		// 사용가능 유무 판단
 		var name = $('#name').val();

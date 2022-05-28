@@ -149,7 +149,7 @@ public class MemberDao {
 		}
 		
 		// 회원탈퇴 데이터베이스작업 전담 처리함수
-		public int delMember(int mno) {
+		public int delMember(String name) {
 			// 할일
 			// 반환값 변수
 			int cnt = 0;
@@ -161,7 +161,7 @@ public class MemberDao {
 			pstmt = db.getPSTMT(con, sql);
 			try{
 				// 질의명령 완성
-				pstmt.setInt(1, mno);
+				pstmt.setString(1, name);
 				// 질의명령 보내고 결과받고..
 				cnt = pstmt.executeUpdate();
 			} catch(Exception e) {

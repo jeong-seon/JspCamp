@@ -139,7 +139,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		
 		</form>
 		<div class="w3-content w3-margin-top w3-card-4 w3-center mxw700">
-			<div class="w3-col w3-gray w3-button" id="joinbtn">회원가입</div> 
+			<div class="w3-col w3-gray w3-button" id="jbtn">회원가입</div> 
 	</div>
 </div>
 </div>

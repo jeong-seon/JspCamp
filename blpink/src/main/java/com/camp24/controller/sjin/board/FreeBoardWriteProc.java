@@ -33,11 +33,10 @@ public class FreeBoardWriteProc implements CmpInter {
 		
 		// 할 일
 		// 세션검사
-		/*
 		String sid = (String) req.getSession().getAttribute("SID");
 		if(sid == null) {
 			return "/camp24/member/login.cmp";
-		}*/
+		}
 		
 		// 파라미터 꺼내고
 		String sno = req.getParameter("mno");

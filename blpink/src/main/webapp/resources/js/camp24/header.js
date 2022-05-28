@@ -11,15 +11,15 @@ $(document).ready(function(){
 	$('#mapbtn').click(function(){
 		$(location).attr('href', '/camp24/map/mapApi.cmp');
 	});
-	$('#jbtn').click(function(){
+	$('#joinbtn').click(function(){
 		$(location).attr('href', '/camp24/member/join.cmp');
 	});
 
-	$('#linbtn').click(function(){
+	$('#loginbtn').click(function(){
 		$(location).attr('href', '/camp24/member/login.cmp');
 	});
 	
-	$('#obtn').click(function(){
+	$('#loutbtn').click(function(){
 		$(location).attr('href', '/camp24/member/logout.cmp');
 	});
 	
@@ -27,14 +27,20 @@ $(document).ready(function(){
 		$(location).attr('href', '/camp24/member/memberList.cmp');
 	});
 	
-	$('#ibtn').click(function(){
+	$('#mypagebtn').click(function(){
 		$(location).attr('href', '/camp24/member/myInfo.cmp');
 	});
 	
 	$('#freebtn').click(function(){
-		$(location).attr('href', '/camp24/board/freeBoardList.cmp');
+		$(location).attr('href', '/camp24/freeBoard/freeBoardList.cmp');
+	});
+	$('#qnabtn').click(function(){
+		$(location).attr('href', '/camp24/qnaBoard/qnaBoardList.cmp');
 	});
 	$('#faqbtn').click(function(){
 		$(location).attr('href', '/camp24/board/faqList.cmp');
+	});
+	$('#revbtn').click(function(){
+		$(location).attr('href', '/camp24/board/reBoardList.cmp');
 	});
 });

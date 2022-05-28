@@ -7,7 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.camp24.controller.CmpInter;
-
+/**
+ * 네이버 지도 api 페이지를 보기위한 클래스
+ * @author	정선우
+ *
+ */
 public class MapApi implements CmpInter {
 
 	@Override

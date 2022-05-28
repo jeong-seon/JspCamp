@@ -56,6 +56,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <body class="w3-light-grey">
 
 <div class="w3-container">
+<h2 class="w3-green w3-padding-16 w3-center">FAQ 게시판</h2>
 <div class="faq">
     <div class="faqHeader ">
     </div>

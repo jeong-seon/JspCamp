@@ -54,7 +54,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		<div class="w3-col w3-margin-top w3-card-4" style="margin-bottom: 100px;">
 			<div class="w3-third w3-button w3-dark-gray " id="lckbtn">아이디찾기</div>
 			<div class="w3-third m2 w3-button w3-light-gray " id="pckbtn">비밀번호찾기</div>
-			<div class="w3-third m2 w3-button w3-gray " id="joinbtn">회원가입</div>
+			<div class="w3-third m2 w3-button w3-gray " id="jbtn">회원가입</div>
 		</div>
 		<div class="w3-col w3-padding w3-card-4 w3-hide"><span id="msg">${SID} 님은 이미 로그인했습니다!!!</span></div>
 	</div>

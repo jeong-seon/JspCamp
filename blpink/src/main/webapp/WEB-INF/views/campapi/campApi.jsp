@@ -72,7 +72,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 	<div class="w3-row">
 		<div class="w3-col">
 			<div class="w3-card-4 w3-margin w3-white w3-center">
-				<div class="w3-col w3-border"><h2>캠핑장 정보</h2></div>
+				<h2 class="w3-green w3-padding-16 w3-center">캠핑장 정보</h2>
 <c:forEach var="data" items="${LIST}">
 	<div class="w3-row w3-center w3-padding-64 w3-card-4">
 		<div class="w3-margin w3-center">

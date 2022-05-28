@@ -29,7 +29,7 @@ public class FreeBoardList implements CmpInter {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String view = "/board/freeBoardList";
+		String view = "/freeBoard/freeBoardList";
 		
 		// 할 일
 		// 파라미터 꺼내고
@@ -43,8 +43,8 @@ public class FreeBoardList implements CmpInter {
 	
 		// 총 게시글 수 조회
 		FreeBoardDao fDao = new FreeBoardDao();
-
 		int total = fDao.getTotal();
+		
 		PageUtil page = new PageUtil(nowPage, total);
 		
 		// 데이터베이스에서 게시글 리스트 가져오고

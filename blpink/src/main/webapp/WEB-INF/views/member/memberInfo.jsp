@@ -27,6 +27,10 @@
 		position: relative;
 		left: 20px;
 	}
+	.pdl20 {
+		position: relative;
+		top: 40px;
+	}
 </style>
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
@@ -38,7 +42,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		요청시 부가정보 전달용 태그
 	 --%>
 	 <form method="POST" action="" id="frm" name="frm">
-	 	<input type="hidden" name="mno" id="smno">
+	 	<input type="hidden" name="name" id="sname">
 	 	<input type="hidden" name="id" id="sid">
 	 </form>
 
@@ -71,12 +75,11 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 				</div>
 			</div>
 			<div class="w3-rest w3-text-grey pdl20">
-				<h4><span class="w3-col  w3-left-align">이름 : </span><span class="w3-rest w3-center" id="mno">${DATA.name}</span></h4>
-				<h4><span class="w3-col  w3-left-align">아이디 : </span><span class="w3-rest w3-center" id="name">${DATA.id}</span></h4>
-				<h4><span class="w3-col  w3-left-align">전화번호 : </span><span class="w3-rest w3-center" id="tel">${DATA.tel}</span></h4>
-				<h4><span class="w3-col  w3-left-align">이메일 : </span><span class="w3-rest w3-center" id="mail">${DATA.mail}</span></h4>
-				<h4><span class="w3-col  w3-left-align">성별 : </span><span class="w3-rest w3-center" id="gen">${DATA.gen == 'M' ? "남자":"여자"}</span></h4>
-				
+				<h4><span class="w3-col m3 w3-left-align">&nbsp;이름 : </span><span class="w3-rest w3-center" id="name">${DATA.name}</span></h4>
+				<h4><span class="w3-col m3 w3-left-align">&nbsp;아이디 : </span><span class="w3-rest w3-center" id="id">${DATA.id}</span></h4>
+				<h4><span class="w3-col m3 w3-left-align">&nbsp;전화번호 : </span><span class="w3-rest w3-center" id="tel">${DATA.tel}</span></h4>
+				<h4><span class="w3-col m3 w3-left-align">&nbsp;이메일 : </span><span class="w3-rest w3-center" id="mail">${DATA.mail}</span></h4>
+				<h4><span class="w3-col m3 w3-left-align">&nbsp;성별 : </span><span class="w3-rest w3-center" id="gen">${DATA.gen == 'M' ? "남자":"여자"}</span></h4>
 			</div>
 		</div>
 		<footer class="w3-col w3-margin-top w3-card-4">

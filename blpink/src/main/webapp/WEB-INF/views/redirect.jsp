@@ -16,13 +16,13 @@
 <c:if test="${not empty VIEW}">
 	<form method="POST" action="${VIEW}" id="frm" name="frm">
 <c:if test="${not empty NOWPAGE}">
-		<input type="hidden" name="nowPage" value="${NOWPAGE}">
+		<input type="hidden" name="nowPage" value="${NOWPAGE}"> <!-- NOWPAGE를 ${VIEW} 객체에 심겠다는 의미 -->
 </c:if>
 <c:if test="${not empty MSG}">
 		<input type="hidden" name="msg" value="${MSG}">
 </c:if>
-<c:if test="${not empty param.bno}">
-		<input type="hidden" name="msg" value="${param.bno}">
+<c:if test="${not empty param.fbno}">
+		<input type="hidden" name="fbno" value="${param.fbno}">
 </c:if>
 	</form>
 </c:if>
