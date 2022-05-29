@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Camp24 FAQ 게시판</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -70,8 +70,12 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             <p class="a">답변 : 지석,은선,선우,서진,희승</p>
         </li>
         <li class="article" id="a3">
-            <p class="q"><a href="#a3">질문 : 어렵당...</a></p>
-            <p class="a">답변 : ...</p>
+            <p class="q"><a href="#a3">질문 : 이번 프로젝트에 대한 후기는?</a></p>
+            <p class="a">답변 : 역시나 시간이 부족했던것 같습니다.</p>
+        </li>
+        <li class="article" id="a4">
+            <p class="q"><a href="#a4">질문 : 캠핑장비 대여나 구매는 안되나요?</a></p>
+            <p class="a">답변 : 결제시스템 구현중입니다..</p>
         </li>
     </ul>
 </div>

@@ -34,7 +34,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 <%-- <c:forEach var="data" items="${LIST}">
 				<div class="w3-col m3 w3-border"><strong>캠핑장 정보</strong></div>
 </c:forEach> --%>
-				<img style="width: 100%;"src="/camp24/resources/img/pic/jeep01.jpg">
+				<img style="width: 100%; "src="/camp24/resources/img/pic/camp.png">
    			</div>
    		</div>
    		<div class="w3-col">
