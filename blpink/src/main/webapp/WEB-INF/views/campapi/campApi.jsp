@@ -16,57 +16,8 @@
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
-<script type="text/javascript">
-	$(document).ready(function(){
-		/* $('#before').click(function(){
-			$('#before').val(1);
-			$('#next').val(2);
-			
-			var bepage = $('#before').val();
-			var nextpage = $('#next').val();
-			
-			
-			if(bepage <= 1){
-				bepage = 1;
-				return;
-			}
-			bepage = bepage - 1;
-			nextpage = nextpage + 1;
-			
-			bepage.val(bepage);
-			nextpage.val(nextpage);
-			$('#frm').submit();
-		});
-		$('#next').click(function(){
-			var bepage = $('#before').val();
-			var nextpage = $('#next').val();
-			
-			bepage = 1;
-			nextpage = 2;
-			
-			if(bepage <= 1){
-				bepage = 1;
-				return;
-			}
-			bepage = bepage - 1;
-			nextpage = nextpage + 1;
-			
-			bepage.val(bepage);
-			nextpage.val(nextpage);
-			$('#frm').submit();
-		});
-		$('#next').click(function({
-			$('#frm').submit();
-		});
-		*/
-		
-	});
-</script>
 </head>
 <body class="w3-light-grey">
-
-<!-- w3-content defines a container for fixed size centered content, 
-and is wrapped around the whole page content, except for the footer in this example -->
 <div class="w3-content" style="max-width:1400px">
 
 	<div class="w3-row">

@@ -62,8 +62,6 @@ public class CampApi implements CmpInter {
         	pharm_url.append("&MobileOS=" + MobileOS);
         	pharm_url.append("&MobileApp=" + MobileApp);
         	
-        	
-        	
         	// 2) 웹서버 접속
         	URL url = new URL(pharm_url.toString());
         	
