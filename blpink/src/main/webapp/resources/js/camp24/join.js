@@ -157,7 +157,7 @@ $(document).ready(function(){
 		if(pwdRegExp.test($('#pw').val())){
 			$(".pw.pwdRegExp").html("");
 		} else {
-			alert("비밀 번호는 4 ~ 10개의 영문 대소문자, 숫자, 특수문자로 생성해야 합니다. 형식에 맞게 입력해주세요"); 
+			alert("비밀 번호는 8개 이상의 영문 대소문자, 숫자, 특수문자로 생성해야 합니다. 형식에 맞게 입력해주세요"); 
 			$("#pw").val(""); 
 			$("#pwck").val(""); 
 			$("#pw").focus(); 

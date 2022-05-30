@@ -21,19 +21,10 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
 </head>
 <body class="w3-light-grey">
-
-<!-- w3-content defines a container for fixed size centered content, 
-and is wrapped around the whole page content, except for the footer in this example -->
-
-
-<!-- Header -->
 	<div class="w3-row">
 
 		<div class="w3-col">
 			<div class="w3-card-4 w3-margin w3-white w3-center">
-<%-- <c:forEach var="data" items="${LIST}">
-				<div class="w3-col m3 w3-border"><strong>캠핑장 정보</strong></div>
-</c:forEach> --%>
 				<img style="width: 100%; "src="/camp24/resources/img/pic/camp.png">
    			</div>
    		</div>

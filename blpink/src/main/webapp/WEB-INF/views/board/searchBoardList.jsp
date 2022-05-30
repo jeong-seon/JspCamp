@@ -47,34 +47,6 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </c:if>
 </c:forEach>
 
-  <!-- 페이지 처리 -->
-	<%-- <div class="w3-container w3-content w3-center">
-		<div class="w3-bar w3-border w3-margin-top w3-margin-bottom">
-	<c:if test="${PAGE.startPage eq 1}">
-			<div class="w3-bar-item w3-light-grey">&laquo;</div>
-	</c:if>
-	<c:if test="${PAGE.startPage ne 1}">
-			<div class="w3-bar-item w3-button w3-hover-green pbtn" id="${PAGE.startPage - 1}">&laquo;</div>
-	</c:if>
-	<c:forEach var="page" begin="${PAGE.startPage}" end="${PAGE.endPage}">
-		<c:if test="${page eq PAGE.nowPage}">
-			<div class="w3-bar-item w3-lime">${page}</div>
-		</c:if>
-		<c:if test="${page ne PAGE.nowPage}">
-			<div class="w3-bar-item w3-button w3-hover-green pbtn" id="${page}">${page}</div>
-		</c:if>
-	</c:forEach>
-		<c:if test="${PAGE.endPage eq PAGE.totalPage}">
-			<div class="w3-bar-item w3-light-grey">&raquo;</div>
-		</c:if>
-		<c:if test="${PAGE.endPage ne PAGE.totalPage}">
-			<div class="w3-bar-item w3-button w3-hover-green pbtn" id="${PAGE.endPage + 1}">&raquo;</div>
-		</c:if>
-		</div>
-	</div> --%>
-	<!-- 페이지 처리 태그 끝 -->
-
-<!-- END MAIN -->
 </div>
 	
 </body>

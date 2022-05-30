@@ -4,6 +4,10 @@ $(document).ready(function(){
 		$('#frm').submit();
 	});
 	
+	$('#lbtn').click(function(){
+		$(location).attr('href', '/camp24/member/login.cmp');
+	});
+	
 	/* 페이지 버튼 클릭 이벤트 처리 */
 	$('.pbtn').click(function(){
 		// 페이지번호 읽고

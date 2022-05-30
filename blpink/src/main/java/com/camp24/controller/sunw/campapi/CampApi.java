@@ -42,10 +42,6 @@ public class CampApi implements CmpInter {
         String pageNo = pageNum;
         String MobileOS = "ETC";
         String MobileApp = "appName";
-//        String bepage = req.getParameter("before");
-//        String nextpage = req.getParameter("next");
-//        int before = Integer.parseInt(bepage);
-//        int next = Integer.parseInt(nextpage);
         
         try {
         	// xml 문서를 파싱할 수 있는 dom parser 를 생성

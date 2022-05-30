@@ -33,14 +33,6 @@ public class CmpDispatch extends HttpServlet {
 	private HashMap<String, CmpInter> map; // 실제요청내용과 실제 실행할 객체를 입력할 맵
 	
 	public void init(ServletConfig config) throws ServletException {
-		/*
-			할일 ]
-				최초로 이 서블릿이 시작되면(.Cmp 로 처음 요청이 올때...)
-				준비된 properties 파일을 읽어서
-				이것을 이용해서 맵을 만들어 놓는다.
-				즉, 요청이 오면 사용할 클래스가 무엇인지를 먼저 등록해놓는다.
-		 */
-		
 		// 파일에서 직접 읽어서 Map으로 만들어야 하므로
 		// Properties 라는 클래스를 이용해서 작업한다.
 		Properties prop = new Properties();
@@ -49,7 +41,6 @@ public class CmpDispatch extends HttpServlet {
 			// 파일을 스트림으로 만들어서
 			String path = this.getClass().getResource("").getPath();
 			path = path + "../resources/cmp.properties";
-//			System.out.println("### dispatch path : " + path);
 			fin = new FileInputStream(path);
 			
 			prop.load(fin);
@@ -82,9 +73,7 @@ public class CmpDispatch extends HttpServlet {
 		}
 	}
 
-	/*
-	 	.cmp 라는 확장자로 요청이 왔을때 매번 실행되는 함수
-	 */
+	// .cmp 라는 확장자로 요청이 왔을때 매번 실행되는 함수
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		/*
 			이 함수에서는 실제 요청내용을 분석하고
@@ -92,15 +81,13 @@ public class CmpDispatch extends HttpServlet {
 		 */
 		
 		/*
-		 	참고 ]
-		 		이 함수를 실행할 때 이 함수가 뷰를 처리하는 방식이
-		 		 forward, redirect, ajax 도 동시에 처리를 해야한다.
-		 		 
-		 		 따라서 각각의 작업을 구분해줄 수 있는 변수를 만들어서 처리하기로 하자.
-		 		 
-		 		 이때 변수는 실제 실행되는 함수내에서도 알수 있어야 하므로
-		 		 요청 객체에 기억시키기로 한다.
-		 		 
+	 		이 함수를 실행할 때 이 함수가 뷰를 처리하는 방식이
+	 		 forward, redirect, ajax 도 동시에 처리를 해야한다.
+	 		 
+	 		 따라서 각각의 작업을 구분해줄 수 있는 변수를 만들어서 처리하기로 하자.
+	 		 
+	 		 이때 변수는 실제 실행되는 함수내에서도 알수 있어야 하므로
+	 		 요청 객체에 기억시키기로 한다.
 		 */
 		
 		Boolean bool = false;
@@ -117,8 +104,6 @@ public class CmpDispatch extends HttpServlet {
 		
 		// 2. 도메인을 찾아낸다.
 		String domain = req.getContextPath();
-//		System.out.println("# service full : " + full);
-//		System.out.println("# service domain : " + domain);
 		// 3. 실제요청을 알아내고
  		String real = full.substring(domain.length());
  		
