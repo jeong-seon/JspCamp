@@ -85,10 +85,10 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 			
 	</form>
 <!-- 		 데이터 전송용 form 태그  -->
-	<form method="POST" action="/whistle/reboard/reboardList.blp" id="frm" name="frm">
+	<%-- <form method="POST" action="/whistle/reboard/reboardList.blp" id="frm" name="frm">
 		<input type="hidden" id="nowPage" name="nowPage" value="${PAGE.nowPage}">
 		<input type="hidden" id="bno" name="bno">
-	</form>
+	</form> --%>
 <!-- END MAIN -->
 </div>
 

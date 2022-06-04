@@ -74,7 +74,7 @@ public class SearchBoardList implements CmpInter {
         // parserw 를 만들어주는 Factory 객체 생성
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         String ServiceKey = "6pAoN9O3ycxlmS7o5f7MvnwrkdKT8wZaKFSsUoVgnrgvUk8%2FqN3dGhpsRYTTGJ63LFtj%2F0kBFwzjL%2Fy5pFa6xA%3D%3D";
-        String numOfRows = "10";
+        String numOfRows = "3015";
         String pageNo = "1";
         String MobileOS = "ETC";
         String MobileApp = "appName";

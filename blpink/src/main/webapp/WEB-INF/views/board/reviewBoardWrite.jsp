@@ -33,25 +33,34 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 				<label for="title" class="w3-col s2">Title</label>
 				<input type="text" id="title" name="title" class="w3-col m10 w3-input w3-border">
 			</div>
-<!-- 			<div class="w3-col w3-margin-bottom"> -->
-<!-- 				<label class="w3-col s2">File</label> -->
-<!-- 				<div class="w3-col m10" id="filebox"> -->
-<!-- 					<input type="file" class="w3-input w3-border w3-margin-bottom upfile"> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 			<div class="w3-col w3-margin-bottom" id="previewbox" style="display: none;"> -->
-<!-- 				<label class="w3-col s2">Preview</label> -->
-<!-- 				<div class="w3-col m10 w3-center" id="preview"> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 			<div class="w3-col w3-margin-top w3-margin-bottom"> -->
-<!-- 				<label class="w3-col s2">별점</label> -->
-<!-- 				<input type="radio" id="star1" name="score" value="1"><label for="star1" style="margin-right: 33px">☆</label> -->
-<!-- 				<input type="radio" id="star2" name="score" value="2"><label for="star2" style="margin-right: 33px">☆☆</label> -->
-<!-- 				<input type="radio" id="star3" name="score" value="3"><label for="star3" style="margin-right: 33px">☆☆☆</label> -->
-<!-- 				<input type="radio" id="star4" name="score" value="4"><label for="star4" style="margin-right: 33px">☆☆☆☆</label> -->
-<!-- 				<input type="radio" id="star5" name="score" value="5"><label for="star5" style="margin-right: 33px">☆☆☆☆☆</label> -->
-<!-- 			</div> -->
+			<div class="w3-col w3-margin-top w3-margin-bottom">
+				<label for="title" class="w3-col s2">캠핑장 선택</label>
+				<select name="clist">
+					<option value="none">캠핑장 선택</option>
+					<c:forEach var="data" items="${LIST}">
+						<option>${data.cname}</option>
+					</c:forEach>
+				</select>
+			</div>
+			<div class="w3-col w3-margin-bottom">
+				<label class="w3-col s2">File</label>
+				<div class="w3-col m10" id="filebox">
+					<input type="file" class="w3-input w3-border w3-margin-bottom upfile">
+				</div>
+			</div>
+			<div class="w3-col w3-margin-bottom" id="previewbox" style="display: none;">
+				<label class="w3-col s2">Preview</label>
+				<div class="w3-col m10 w3-center" id="preview">
+				</div>
+			</div>
+			<div class="w3-col w3-margin-top w3-margin-bottom">
+				<label class="w3-col s2">별점</label>
+				<input type="radio" id="star1" name="score" value="1"><label for="star1" style="margin-right: 33px">☆</label>
+				<input type="radio" id="star2" name="score" value="2"><label for="star2" style="margin-right: 33px">☆☆</label>
+				<input type="radio" id="star3" name="score" value="3"><label for="star3" style="margin-right: 33px">☆☆☆</label>
+				<input type="radio" id="star4" name="score" value="4"><label for="star4" style="margin-right: 33px">☆☆☆☆</label>
+				<input type="radio" id="star5" name="score" value="5"><label for="star5" style="margin-right: 33px">☆☆☆☆☆</label>
+			</div>
 			<div class="w3-col">
 				<label for="body" class="w3-col s2">글본문</label>
 				<div class="w3-col m10">
@@ -64,7 +73,6 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 		
 		<div class="w3-col w3-margin-top w3-card-4">
 			<div class="w3-half w3-button w3-grey" id="listbtn">이전 페이지</div>
-<!-- 			<div class="w3-third w3-button w3-lightcyan" id="rbtn">삭제</div> -->
 			<div class="w3-half w3-button w3-black" id="wpbtn">글등록</div>
 		</div>
 	</div>

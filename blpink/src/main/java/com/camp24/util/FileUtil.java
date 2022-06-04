@@ -121,7 +121,7 @@ public class FileUtil {
 		// 작업 경로를 만든다.
 		bPath = this.getClass().getResource("/").getPath();
 		bPath = bPath.substring(0, bPath.indexOf("/source")) + 
-							"/source/jennie/src/main/webapp/resources/upload";
+							"/source/blpink/src/main/webapp/resources/upload";
 		File devFile = new File(bPath, file.getName());
 		FileInputStream fin = null;
 		PrintStream ps = null;
