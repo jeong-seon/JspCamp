@@ -42,9 +42,10 @@ public class ReBoardList implements CmpInter {
 		 
 		PageUtil page = new PageUtil(nowPage, total);
 		
-		ArrayList<BoardVO> list = rDao.getReBoardList(page);
-		
-		req.setAttribute("LIST", list);
+		ArrayList<BoardVO> list1 = rDao.getReBoardList(page);
+		ArrayList<BoardVO> list2 = rDao.getImageList();
+		req.setAttribute("LIST", list1);
+		req.setAttribute("IMAGE", list2);
 		req.setAttribute("PAGE", page);
 		
 		return view;

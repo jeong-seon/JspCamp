@@ -152,8 +152,16 @@ public class FileVO {
 				+ ", imageno=" + imageno + ", len=" + len + ", ilen=" + ilen + ", id=" + id + ", oriname=" + oriname
 				+ ", ioriname=" + ioriname + ", isavename=" + isavename + ", savename=" + savename + ", dir=" + dir
 				+ ", idir=" + idir + ", sdate=" + sdate + ", stime=" + stime + ", icode=" + icode + ", wdate=" + wdate
-				+ ", wtime=" + wtime + "]";
+				+ ", wtime=" + wtime + ", getFno()=" + getFno() + ", getMno()=" + getMno()
+				+ ", getRno()=" + getRno() + ", getCnt()=" + getCnt() + ", getIno()=" + getIno() + ", getImageno()=" + getImageno()
+				+ ", getLen()=" + getLen() + ", getIlen()=" + getIlen() + ", getOriname()=" + getOriname()
+				+ ", getIoriname()=" + getIoriname() + ", getSavename()=" + getSavename() + ", getIsavename()=" + getIsavename()
+				+ ", getDir()=" + getDir() + ", getIdir()=" + getIdir() + ", getSdate()="
+				+ getSdate() + ", getStime()=" + getStime() + ", getIcode()=" + getIcode() + ", getWdate()=" + getWdate() + ", getWtime()="
+				+ getWtime() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
+				+ super.toString() + "]";
 	}
+	
 
 
 }

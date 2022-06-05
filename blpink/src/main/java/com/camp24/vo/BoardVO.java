@@ -6,12 +6,24 @@ import java.sql.*;
 import java.text.*;
 
 public class BoardVO {
-	private int mno, qmno, rmno, bno, fbno, qno,  upno, qupno, fupno, rno, rcno, ano, pno, pcno, click, cnt, step, lat, plong;
-	private String id, title, ftitle, qtitle, rtitle, body, qbody, fbody, rbody, sdate, stime, sedate, setime, avatar, score, gname, jname;
+	private int mno, qmno, rmno, bno, fbno, qno,  upno, qupno, fupno, rno, rcno, cno, ano, pno, pcno, click, cnt, step, lat, plong, imageno;
+	private String id, title, ftitle, qtitle, rtitle, body, qbody, fbody, rbody, sdate, stime, sedate, setime, avatar, score, cname, gname, jname, isavename;
 	private Date wdate, qdate, qedate, fdate, fedate, rdate, redate ;
 	private Time wtime, qtime, qetime, ftime, fetime, rtime, retime ;
 	ArrayList<FileVO> list;
 	
+	public int getCno() {
+		return cno;
+	}
+	public void setCno(int cno) {
+		this.cno = cno;
+	}
+	public String getCname() {
+		return cname;
+	}
+	public void setCname(String cname) {
+		this.cname = cname;
+	}
 	public int getMno() {
 		return mno;
 	}
@@ -337,19 +349,34 @@ public class BoardVO {
 		this.retime = retime;
 	}
 	
+	public int getImageno() {
+		return imageno;
+	}
+	public void setImageno(int imageno) {
+		this.imageno = imageno;
+	}
+	
+	public String getIsavename() {
+		return isavename;
+	}
+	public void setIsavename(String isavename) {
+		this.isavename = isavename;
+	}
 	@Override
 	public String toString() {
 		return "BoardVO [mno=" + mno + ", qmno=" + qmno + ", rmno=" + rmno + ", bno=" + bno + ", fbno=" + fbno
 				+ ", qno=" + qno + ", upno=" + upno + ", qupno=" + qupno + ", fupno=" + fupno + ", rno=" + rno
-				+ ", rcno=" + rcno + ", ano=" + ano + ", pno=" + pno + ", pcno=" + pcno + ", click=" + click + ", cnt="
-				+ cnt + ", step=" + step + ", lat=" + lat + ", plong=" + plong + ", id=" + id + ", title=" + title
-				+ ", ftitle=" + ftitle + ", qtitle=" + qtitle + ", rtitle=" + rtitle + ", body=" + body + ", qbody="
-				+ qbody + ", fbody=" + fbody + ", rbody=" + rbody + ", sdate=" + sdate + ", stime=" + stime
-				+ ", avatar=" + avatar + ", score=" + score + ", gname=" + gname + ", jname=" + jname + ", wdate="
-				+ wdate + ", qdate=" + qdate + ", qedate=" + qedate + ", fdate=" + fdate + ", fedate=" + fedate
-				+ ", rdate=" + rdate + ", redate=" + redate + ", wtime=" + wtime + ", qtime=" + qtime + ", qetime="
-				+ qetime + ", ftime=" + ftime + ", fetime=" + fetime + ", rtime=" + rtime + ", retime=" + retime
-				+ ", list=" + list + "]";
+				+ ", rcno=" + rcno + ", cno=" + cno + ", ano=" + ano + ", pno=" + pno + ", pcno=" + pcno + ", click="
+				+ click + ", cnt=" + cnt + ", step=" + step + ", lat=" + lat + ", plong=" + plong + ", id=" + id
+				+ ", title=" + title + ", ftitle=" + ftitle + ", qtitle=" + qtitle + ", rtitle=" + rtitle + ", body="
+				+ body + ", qbody=" + qbody + ", fbody=" + fbody + ", rbody=" + rbody + ", sdate=" + sdate + ", stime="
+				+ stime + ", sedate=" + sedate + ", setime=" + setime + ", avatar=" + avatar + ", score=" + score
+				+ ", cname=" + cname + ", gname=" + gname + ", jname=" + jname + ", wdate=" + wdate + ", qdate=" + qdate
+				+ ", qedate=" + qedate + ", fdate=" + fdate + ", fedate=" + fedate + ", rdate=" + rdate + ", redate="
+				+ redate + ", wtime=" + wtime + ", qtime=" + qtime + ", qetime=" + qetime + ", ftime=" + ftime
+				+ ", fetime=" + fetime + ", rtime=" + rtime + ", retime=" + retime + ", list=" + list + "]";
 	}
+	
+	
 
 }

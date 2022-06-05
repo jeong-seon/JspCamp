@@ -4,6 +4,7 @@ public class BoardSQL {
 	public final int SEL_BOARD_LIST			=	1001;
 	public final int SEL_TOTAL_COUNT		=	1002;
 	public final int SEL_BOARD_DETAIL		=	1003;
+	public final int SEL_CAMP_LIST			=	1004;
 	
 	public final int INSERT_BOARD			= 	3001;
 	public final int INSERT_FILEINFO		= 	3002;
@@ -82,6 +83,12 @@ public class BoardSQL {
 			buff.append("    AND bmno = mno ");
 			buff.append("    AND b.isshow = 'Y' ");
 			buff.append("    AND bno = ? ");
+			break;
+		case SEL_CAMP_LIST:
+			buff.append("SELECT ");
+			buff.append("	cno, cname ");
+			buff.append("FROM ");
+			buff.append("	camp ");
 			break;
 		}
 		return buff.toString();

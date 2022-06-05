@@ -1,17 +1,6 @@
 package com.camp24.sql.leo;
 
 
-/**
- * @author	leo
- * @since	2022/05/26
- * @version	v.1.0
- * @see
- * 
- * 			작업이력 ]
- * 				2022.05.26	-	클래스제작
- * 								담당자 : leo
- *
- */
 
 public class RBoardSQL {
 	
@@ -19,7 +8,7 @@ public class RBoardSQL {
 	public final int SEL_TOTAL_COUNT		=	1002;
 	public final int SEL_REBOARD_LIST		=	1003;
 	public final int SEL_REBOARD_INFO		=	1004;
-
+	public final int SEL_IMAGE_LIST			=	1005;
 
 	public final int UPDATE_REBOARD = 2001;
 	public final int DEL_REVIEW = 2002;
@@ -35,23 +24,26 @@ public class RBoardSQL {
 			
 			case INSERT_RBOARD: 
 				buff.append("INSERT INTO ");
-				 buff.append("   REVIEW(RNO, RBODY, RMNO, RTITLE, CLICK )  ");
-				 buff.append(" VALUES( ");
-				 buff.append(" (SELECT NVL(MAX(RNO) +1, 1001) FROM REVIEW), ");
-			     buff.append(" ?, (SELECT MNO FROM MEMBER WHERE ID = ?), ?, 0  ");
-			     buff.append(" ) ");
-				
+				buff.append("    review(rno, rcno, rbody, rmno, rtitle, score) ");
+				buff.append("VALUES( ");
+				buff.append("    (SELECT NVL(MAX(rno) + 1, 100001) FROM review), ");
+				buff.append("    ?, ");
+				buff.append("    ?, ");
+				buff.append("    (SELECT mno FROM member WHERE id = ?), ");
+				buff.append("    ?, ");
+				buff.append("    ? ");
+				buff.append(") ");
 				break;
 				
 			case INSERT_FILEINFO: 
 				buff.append("INSERT INTO ");
-				buff.append("   IMAGE(INO, IMAGENO, IORINAME, ISAVENAME, IDIR, ILEN ) ");
+				buff.append("   IMAGE(INO, IMAGENO, IORINAME, ISAVENAME, IDIR, ILEN, icode) ");
 				buff.append(" VALUES( ");
-				buff.append(" (SELECT NVL(MAX(INO) +1, 1001) FROM IMAGE), ");
-				buff.append("  (SELECT MAX(rno) FROM REVIEW WHERE rmno = (SELECT mno FROM member WHERE id = ? ))  ");
-				buff.append("  ?, ?, ?, ?  ");
+				buff.append(" (SELECT NVL(MAX(INO) + 1, 100001) FROM IMAGE), ");
+				buff.append("  (SELECT MAX(rno) FROM REVIEW WHERE rmno = (SELECT mno FROM member WHERE id = ? )),  ");
+				buff.append("  ?, ?, ?, ?,  ");
+				buff.append("  'R' ");
 				buff.append(" ) ");
-				
 				break;
 				
 			case SEL_TOTAL_COUNT:
@@ -71,6 +63,16 @@ public class RBoardSQL {
 				buff.append("WHERE ");
 				buff.append("	RNO = ? ");
 				break;
+				
+			case SEL_IMAGE_LIST:
+				buff.append("SELECT ");
+				buff.append("    rno, imageno, isavename ");
+				buff.append("FROM ");
+				buff.append("    review r, image i ");
+				buff.append("WHERE ");
+				buff.append("    r.isshow = 'Y' ");
+				buff.append("    AND imageno = rno ");
+				break;
 				 
 			case SEL_REVIEW_DETAIL:
 				buff.append("SELECT ");
@@ -84,15 +86,30 @@ public class RBoardSQL {
 				buff.append("    AND rno = ? ");
 				break;
 				
-			case SEL_REBOARD_LIST :
-			buff.append("	        SELECT  ");
-			buff.append("	            ROWN, rno, id, rtitle, rbody  ");
-			buff.append("	      FROM (select ROWNUM ROWN, rno, id, rtitle, rbody ");
-			buff.append("	        from review, member  ");
-			buff.append("	        where REVIEW.ISSHOW = 'Y')  ");
-			buff.append("	     WHERE ROWN between ? and ?  ");
-				
-				
+			case SEL_REBOARD_LIST:
+				buff.append("SELECT ");
+				buff.append("	rowno, rno, id, rcno, rbody, rtitle, rdate, redate, click, score, cname, savename ");
+				buff.append("FROM ");
+				buff.append("	( ");
+				buff.append("	 SELECT ");
+				buff.append("	     ROWNUM rowno, rno, id, rcno, rbody, rtitle, rdate, redate, click, score, cname, savename ");
+				buff.append("	 FROM ");
+				buff.append("	     ( ");
+				buff.append("	         SELECT ");
+				buff.append("	             rno, id, rcno, rbody, rtitle, rdate, redate, click, score, cname, savename ");
+				buff.append("	         FROM ");
+				buff.append("	             member m, review r, avatar a, camp c ");
+				buff.append("	         WHERE ");
+				buff.append("	             r.isshow = 'Y' ");
+				buff.append("	             AND mno = rmno ");
+				buff.append("	             AND avt = ano ");
+				buff.append("	             AND rcno = cno ");
+				buff.append("	         ORDER BY ");
+				buff.append("	             rdate DESC ");
+				buff.append("	     ) ");
+				buff.append("	 ) ");
+				buff.append("WHERE ");
+				buff.append("	rowno BETWEEN ? AND ? ");
 				break;/*
 			case SEL_REBOARD_LIST :
 				buff.append("	SELECT  ROWN, RNO, ID, RTITLE, RDATE, CLICK, NVL(CNT,0) CNT  ");
@@ -130,7 +147,7 @@ public class RBoardSQL {
 				
 				
 				break;
-				*/
+				*/ 
 			case SEL_REBOARD_INFO:
 				
 				buff.append("SELECT ");

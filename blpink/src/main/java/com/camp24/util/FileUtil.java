@@ -120,8 +120,10 @@ public class FileUtil {
 	public void saveBackup(File file) {
 		// 작업 경로를 만든다.
 		bPath = this.getClass().getResource("/").getPath();
+//		System.out.println("###### bPath1 : " + bPath);
 		bPath = bPath.substring(0, bPath.indexOf("/source")) + 
-							"/source/blpink/src/main/webapp/resources/upload";
+							"/camp24/resources/upload";
+//		System.out.println("###### bPath2 : " + bPath);
 		File devFile = new File(bPath, file.getName());
 		FileInputStream fin = null;
 		PrintStream ps = null;

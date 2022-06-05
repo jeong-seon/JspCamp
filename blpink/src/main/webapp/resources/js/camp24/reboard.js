@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
 	
 	/* 페이지 버튼 클릭이벤트 처리 */
@@ -16,24 +15,19 @@ $(document).ready(function(){
 	$('#wbtn').click(function(){
 		$('#pageFrm').attr('action', '/camp24/board/reBoardWrite.cmp');
 		$('#pageFrm').submit();
-//		$('#Frm').attr('action', '/camp24/board/reBoardWrite.cmp');
-//		$('#Frm').submit();
-		
 	});
 	
 	//삭제
-	$('#debtn').click(function(){
+	$('.debtn').click(function(){
+		var sno = $(this).parent().attr('id');
+		alert('#### sno : ' + sno);
 		$('#Frm').attr('action', '/camp24/board/reBoardDelete.cmp');
+		$('#rno').val(sno);
+		alert('#### rno : ' + $('#rno').val());
 		$('#Frm').submit();
 		
 	});
 	
-	
-	
-//	//리뷰관리버튼
-//	$('#manbtn').click(function(){
-//		$(location).attr('href', '/camp24/board/reBoardList2.cmp');
-//	});
 	
 	//이전페이지 버튼
 	$('#listbtn').click(function(){
@@ -42,7 +36,6 @@ $(document).ready(function(){
 		$('#title').prop('disabled', true);
 		$('#body').prop('disabled', true);
 		$('#frm').submit();
-//		$(location).attr('href', '/camp24/board/reBoardList.cmp');
 	});
 	
 	//글 작성후 글등록 버튼(reboardWrite)
@@ -57,23 +50,69 @@ $(document).ready(function(){
 			$('#body').focus();
 			return;
 		}
+		// 캠핑장 선택
+		var camping = $('#clist').val();
+		if(camping == 'none'){
+			$('#clist').focus();
+			return;
+		}
+		
+		// 별점 선택
+		var score = $('input[name="score"]:checked').val();
+		if(!score){
+			alert('별점을 선택해주세요!');
+			return;
+		}
+		
+		var el = $('input[type="file"]');
+		
+		for(i = 0 ; i < $(el).length ; i++ ){
+			var tmp = $(el).eq(i).val();
+			if(!tmp){
+				$(el).eq(i).prop('disabled', true);
+			}
+		}
+		
+		$('.upfile').last().prop('disabled', true);
 		
 		$('#frm').submit();
-		$('#Frm').submit();
 	});
 	
-	/*
-	//리스트로 돌아가기 버튼 
-	$('#listbtn').click(function(){
-		//form태그의 action속성값 변경
-		$('#frm').attr('action', '/camp24/board/reBoardList.cmp');
-		//사용하지 않는 태그 비활성시키고
-		$('#mno').prop('disabled', true);
-		$('#body').prop('disabled', true);
-		
-		$('#frm').submit();
+	$('#filebox').on('change', '.upfile', function(e){
+		var txt = $(this).val();
+		var len = $('.upfile').length;
+		if(!txt && len > 1){
+			$('#img' + $(this).attr('id').substring(4)).remove();
+			$(this).remove();
+			if($('.pic').length == 0){
+				$('#previewbox').slideUp(100);
+			}
+		} else {
+			$('#filebox').append('<input type="file" class="w3-input w3-border w3-margin-bottom upfile">');
+			
+			$('#previewbox').stop().slideUp(300, function(){
+				
+				var box = document.createElement('div');
+				$(box).attr('class', 'inblock picbox');
+				var img = document.createElement('img');
+				$(img).attr('class', 'pic');
+				var path = URL.createObjectURL(e.target.files[0]);
+				$(img).attr('src', path);
+				$(box).append($(img));
+				$('#preview').append($(box));
+				
+				var cnt = $('.picbox').length;
+				for(i = 1; i <= cnt ; i++ ){
+					$('.picbox').eq(i-1).attr('id', 'img' + i);
+				}
+				$('#previewbox').stop().slideDown(300);
+			});
+		}
+		len = $('.upfile').length;
+		for(i = 1; i < len ; i++ ){
+			$('.upfile').eq(i-1).attr('id', 'file' + i);
+			$('.upfile').eq(i-1).attr('name', 'file' + i);
+		}
 	});
-	*/
-	
 	
 });

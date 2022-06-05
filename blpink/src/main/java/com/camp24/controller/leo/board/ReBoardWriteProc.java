@@ -26,32 +26,51 @@ public class ReBoardWriteProc implements CmpInter {
 			return "/camp24/member/login.cmp";
 		}
 		
-		// 파라미터 꺼내고
+		FileUtil futil = new FileUtil(req, "/resources/upload");
+		MultipartRequest multi = futil.getMulti();
 		
-			String title = req.getParameter("title");
-			String spage = req.getParameter("nowPage");
-			String body = req.getParameter("body");
+		
+		// 파라미터 꺼내고
+		String title = multi.getParameter("title");
+		String body = multi.getParameter("body");
+		String score = multi.getParameter("score");
+		String scno = multi.getParameter("clist");
+		int cno = Integer.parseInt(scno);
+		
+		ArrayList<FileVO> list = futil.getList();
 
-			BoardVO bVO = new BoardVO();
-			bVO.setId(sid);
-			bVO.setBody(body);
-			bVO.setTitle(title);
-			
-			req.setAttribute("NOWPAGE", spage);
-			
-			ReBoardDao rDao = new ReBoardDao();
+//		String spage = req.getParameter("nowPage");
+		
+		BoardVO bVO = new BoardVO();
+		bVO.setId(sid);
+		bVO.setCno(cno);
+		bVO.setScore(score);
+		bVO.setRbody(body);
+		bVO.setRtitle(title);
+		bVO.setList(list);
+		
+//		System.out.println("####### cno : " + cno);
+		
+//		req.setAttribute("NOWPAGE", spage);
+		
+		ReBoardDao rDao = new ReBoardDao();
+		// 데이터베이스 작업하고 결과받고
+//		int cnt = rDao.WriteRe(bVO);
+		int cnt = rDao.insertReData(bVO);
+//		System.out.println("######## cnt : " + cnt);
 
-			// 데이터베이스 작업하고 결과받고
-			int result = rDao.WriteRe(bVO);
-			// 결과에 따라서 뷰 작성하고
-			if(result == 0) {
-				// 글등록에 실패한 경우
-				
-				// POST 방식 - redirect용 jsp 파일을 이용하는 경우
-				req.setAttribute("isRedirect", false);
-				req.setAttribute("VIEW", "/camp24/board/reBoardWrite.cmp");
-				return "/board/redirect";
-			}
+		// 결과에 따라서 뷰 작성하고
+		if(cnt == -1 || cnt != bVO.getList().size()) {
+			// 글등록에 실패한 경우
+			view = "/camp24/board/reBoardWrite.cmp?nowPage=" + multi.getParameter("nowPage");
+		} else {
+			view = "/camp24/board/reBoardList.cmp";
+		}
+			
+//			// POST 방식 - redirect용 jsp 파일을 이용하는 경우
+//			req.setAttribute("isRedirect", false);
+//			req.setAttribute("VIEW", "/camp24/board/reBoardWrite.cmp");
+//			return "/board/redirect";
 		
 		
 		return view;

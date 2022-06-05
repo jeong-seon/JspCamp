@@ -15,6 +15,11 @@
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
+<style type="text/css">
+	input[type="file"].w3-margin-bottom {
+		margin-bottom: 5px!important;
+	}
+</style>
 </head>
 <body class="w3-light-grey">
 <div class="w3-container">
@@ -23,10 +28,8 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
  <div class="w3-content mxw700">
 		<h1 class="w3-light-grey w3-padding w3-center w3-card-4">Review</h1>
-		<form method="POST" action="/camp24/board/reBoardWriteProc.cmp" 
+		<form enctype="multipart/form-data" method="POST" action="/camp24/board/reBoardWriteProc.cmp" 
 				id="frm" name="frm" class="w3-col w3-card-4 frmpadding">
-<!-- 			<input type="hidden" name="nowPage" id="nowPage" value="param.nowPage"> -->
-<%-- 			<input type="hidden" name="nowPage" id="nowPage" value="${param.nowPage}"> --%>
 			<input type="hidden" name="nowPage" id="nowPage" value="${nowPage}">
 		<div class="w3-padding">
 			<div class="w3-col w3-margin-top w3-margin-bottom">
@@ -35,10 +38,10 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 			</div>
 			<div class="w3-col w3-margin-top w3-margin-bottom">
 				<label for="title" class="w3-col s2">캠핑장 선택</label>
-				<select name="clist">
+				<select id="clist" name="clist">
 					<option value="none">캠핑장 선택</option>
-					<c:forEach var="data" items="${LIST}">
-						<option>${data.cname}</option>
+					<c:forEach var="data" items="${CAMP}">
+						<option value="${data.cno}">${data.cname}</option>
 					</c:forEach>
 				</select>
 			</div>
@@ -55,11 +58,11 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 			</div>
 			<div class="w3-col w3-margin-top w3-margin-bottom">
 				<label class="w3-col s2">별점</label>
-				<input type="radio" id="star1" name="score" value="1"><label for="star1" style="margin-right: 33px">☆</label>
-				<input type="radio" id="star2" name="score" value="2"><label for="star2" style="margin-right: 33px">☆☆</label>
-				<input type="radio" id="star3" name="score" value="3"><label for="star3" style="margin-right: 33px">☆☆☆</label>
-				<input type="radio" id="star4" name="score" value="4"><label for="star4" style="margin-right: 33px">☆☆☆☆</label>
-				<input type="radio" id="star5" name="score" value="5"><label for="star5" style="margin-right: 33px">☆☆☆☆☆</label>
+				<input type="radio" id="descore" name="score" value="1"><label for="star1" style="margin-right: 33px">☆</label>
+				<input type="radio" name="score" value="2"><label for="star2" style="margin-right: 33px">☆☆</label>
+				<input type="radio" name="score" value="3"><label for="star3" style="margin-right: 33px">☆☆☆</label>
+				<input type="radio" name="score" value="4"><label for="star4" style="margin-right: 33px">☆☆☆☆</label>
+				<input type="radio" name="score" value="5"><label for="star5" style="margin-right: 33px">☆☆☆☆☆</label>
 			</div>
 			<div class="w3-col">
 				<label for="body" class="w3-col s2">글본문</label>

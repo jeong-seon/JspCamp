@@ -28,30 +28,68 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <!-- 				<div class="w3-button w3-cyan w3-hover-lime w3-right" id="manbtn">리뷰관리</div> -->
 <%-- </c:if> --%>
 
-<c:forEach var="data" items="${LIST}">
+<%-- <c:forEach var="data" items="${LIST}">
   <div class="w3-row">
     <div class="w3-twothird w3-container">
-    <%--         <c:if test="${SID eq data.id}">  --%>
+<c:if test="${SID eq data.id}">
 				<div class="w3-button w3-grey w3-hover-red w3-right" 
 				style="position:relative; top:30px;" id="debtn">리뷰삭제</div>
-<%-- </c:if> --%>
+</c:if>
       <h1 class="w3-text-teal">${data.title}</h1>
-      <span>${data.body}</span><span class="w3-right">${data.id}</span>
+      <span>${data.body}</span>
+      <div class="w3-col box120 pdAll10 w3-border-right" style="width: 135px;">
+		<img src="/camp24/resources/img/avatar/${data.avatar}" class="inblock avtBox100 w3-border w3-border-grey">
+	      <span class="w3-col w3-center" style="display: inline-block">${data.id}</span>
+		</div>
     </div>
-<!--     <div class="w3-third w3-container"> -->
-<!-- 		<img class="w3-border" width="200" height="200"> -->
-<!--     </div> -->
+    
     </div>
+  </c:forEach> --%>
   	<form method="POST" action="/camp24/board/reBoardWriteProc.cmp" id="Frm" name="Frm">
 			<input type="hidden" name="title" id="title" value="${data.title}">
 			<input type="hidden" name="body" id="body" value="${data.body}">
 			<input type="hidden" name="id" id="id" value="${data.id}">
 			<input type="hidden" name="rno" id="rno" value="${data.rno}">
-<%-- 			<input type="hidden" id="nowPage" name="nowPage" value="${PAGE.nowPage}"> --%>
 			
 	</form>
-  </c:forEach>
 
+<c:forEach var="data" items="${LIST}">
+		<div class="w3-col">
+			<div class="w3-col w3-round-large w3-card-4 w3-margin-bottom w3-padding">
+				<div class="w3-col box120 pdAll10 w3-border-right" style="width: 135px;">
+					<img src="/camp24/resources/img/avatar/${data.avatar}" class="inblock avtBox100 w3-border w3-border-grey">
+				</div>
+				<div class="w3-rest w3-padding">
+					<div class="w3-col w3-border-bottom">
+						<div class="w3-cell w3-right" id="${data.rno}">
+			<c:if test="${SID eq data.id}">
+				<div class="w3-button w3-grey w3-hover-red w3-right debtn" 
+				style="position:relative; top:30px;">리뷰삭제</div>
+			</c:if>
+						</div>
+						<div>
+							<span class="w3-third w3-left mgb10 ft10"><small><strong>아이디 : ${data.id}</strong></small></span>
+							<span class="w3-third w3-left mgb10 ft10"><small>작성일 : ${data.wdate}</small></span>
+							<span class="w3-third w3-left mgb10 ft10"><small>제목 : ${data.title}</small></span>
+							<span class="w3-third w3-left mgb10 ft10"><small>캠핑장 : ${data.cname}</small></span>
+							<span class="w3-third w3-left mgb10 ft10"><small>별점 : ${data.score}</small></span>
+							<span class="w3-third w3-left mgb10 ft10"><small>조회수 : ${data.click}</small></span>
+						</div>
+					</div>
+					<div class="w3-col w3-margin-top">
+						<span class="w3-col w3-padding ft12">${data.body}</span>
+					</div>
+<c:forEach var="image" items="${IMAGE}">
+			<c:if test="${data.rno eq image.rno}">
+					<div class="w3-col w3-margin-top">
+						<img style="width: 200px; height: auto;" src="/camp24/resources/upload/${image.isavename}">
+					</div>
+			</c:if>
+</c:forEach>
+				</div>
+			</div>
+		</div>
+</c:forEach>
 
 
  <!-- 페이지 처리 -->

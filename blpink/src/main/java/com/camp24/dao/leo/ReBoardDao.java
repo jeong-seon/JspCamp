@@ -2,12 +2,10 @@ package com.camp24.dao.leo;
 
 import java.sql.*;
 import java.util.*;
-import java.util.Date;
 
 import com.camp24.db.*;
 import com.camp24.sql.leo.RBoardSQL;
 import com.camp24.util.PageUtil;
-import com.camp24.vo.*;
 import com.camp24.vo.BoardVO;
 import com.camp24.vo.FileVO;
 
@@ -44,9 +42,11 @@ public class ReBoardDao {
 		//명령전달도구
 		pstmt = db.getPSTMT(con, sql);
 		try {
-			pstmt.setString(1, bVO.getBody());
-			pstmt.setString(2, bVO.getId());
-			pstmt.setString(3, bVO.getTitle());
+			pstmt.setInt(1, bVO.getCno());
+			pstmt.setString(2, bVO.getRbody());
+			pstmt.setString(3, bVO.getId());
+			pstmt.setString(4, bVO.getRtitle());
+			pstmt.setString(5, bVO.getScore());
 			
 			cnt = pstmt.executeUpdate();
 		} catch(Exception e) {
@@ -85,6 +85,8 @@ public class ReBoardDao {
 			pstmt.setString(3, fVO.getSavename());
 			pstmt.setString(4, fVO.getDir());
 			pstmt.setLong(5, fVO.getLen());
+			
+			cnt = pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -183,7 +185,38 @@ public class ReBoardDao {
 			}
 			return bVO;
 		}
-	
+		
+		// imageList 함수
+		public ArrayList<BoardVO> getImageList(){
+			ArrayList<BoardVO> list = new ArrayList<BoardVO>();
+			con = db.getCon();
+			String sql = rSQL.getSQL(rSQL.SEL_IMAGE_LIST);
+			stmt = db.getSTMT(con);
+			try {
+				rs = stmt.executeQuery(sql);
+				while(rs.next()) {
+					BoardVO bVO = new BoardVO();
+					bVO.setRno(rs.getInt("rno"));
+					bVO.setImageno(rs.getInt("imageno"));
+					bVO.setIsavename(rs.getString("isavename"));
+					
+					System.out.println("************** : " + bVO.getIsavename());
+					
+					list.add(bVO);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				db.close(rs);
+				db.close(stmt);
+				db.close(con);
+			}
+			
+			return list;
+		}
+		
+		
+		
 		 //list 보여주는 함수
 		public ArrayList<BoardVO> getReBoardList(PageUtil page){
 			ArrayList<BoardVO> list = new ArrayList<BoardVO>();
@@ -198,8 +231,13 @@ public class ReBoardDao {
 					BoardVO bVO = new BoardVO();
 					bVO.setRno(rs.getInt("rno"));
 					bVO.setId(rs.getString("id"));
+					bVO.setAvatar(rs.getString("savename"));
 					bVO.setTitle(rs.getString("rtitle"));
 					bVO.setBody(rs.getString("rbody"));
+					bVO.setCname(rs.getString("cname"));
+					bVO.setScore(rs.getString("score"));
+					bVO.setClick(rs.getInt("click"));
+					bVO.setWdate(rs.getDate("rdate"));
 					
 					list.add(bVO);
 				}

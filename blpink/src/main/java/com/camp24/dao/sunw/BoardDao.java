@@ -180,4 +180,32 @@ public class BoardDao {
 		}
 		return bVO;
 	}
+	
+	public ArrayList<BoardVO> getCampList() {
+		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
+		
+		con = db.getCon();
+		
+		String sql = bSQL.getSQL(bSQL.SEL_CAMP_LIST);
+		
+		stmt = db.getSTMT(con);
+		
+		try {
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				BoardVO bVO = new BoardVO();
+				bVO.setCno(rs.getInt("cno"));
+				bVO.setCname(rs.getString("cname"));
+				list.add(bVO);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(stmt);
+			db.close(rs);
+			db.close(con);
+		}
+		return list;
+	}
 }
